@@ -26,7 +26,7 @@ app.use("/orders", ordersRouter);
 app.use("/analytics", analyticsRouter);
 
 app.get("/", (req, res) => {
-  res.json({ message: "E-commerce Orders & Analytics API Running ✅" });
+  res.json({ message: "E-commerce Orders & Analytics API Running " });
 });
 
 app.listen(8080, () => {

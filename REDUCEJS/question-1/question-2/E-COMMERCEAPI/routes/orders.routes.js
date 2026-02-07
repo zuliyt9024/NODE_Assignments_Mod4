@@ -13,7 +13,7 @@ const getTodayDate = () => {
   return today.toISOString().split("T")[0];
 };
 
-// 1️⃣ Create Order
+//  Create Order
 router.post("/", (req, res) => {
   const { productId, quantity } = req.body;
 
@@ -58,13 +58,13 @@ router.post("/", (req, res) => {
   res.status(201).json({ message: "Order placed successfully", order: newOrder });
 });
 
-// 2️⃣ Get All Orders
+// Get All Orders
 router.get("/", (req, res) => {
   const db = readDB();
   res.status(200).json({ total: db.orders.length, orders: db.orders });
 });
 
-// 3️⃣ Cancel Order (Soft Delete)
+//  Cancel Order (Soft Delete)
 router.delete("/:orderId", (req, res) => {
   const orderId = Number(req.params.orderId);
   const db = readDB();
@@ -104,7 +104,7 @@ router.delete("/:orderId", (req, res) => {
   res.status(200).json({ message: "Order cancelled successfully", order });
 });
 
-// 4️⃣ Change Order Status
+// Change Order Status
 router.patch("/change-status/:orderId", (req, res) => {
   const orderId = Number(req.params.orderId);
   const { status } = req.body;
